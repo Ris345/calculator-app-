@@ -16,15 +16,24 @@ let  firstOperand =  " "
 let  secondOperand =  " "
 let operator = " "; 
 let zeroDisplay = 0
-let expression = " "
-
 
 
 //  grabbing each number with onClick.
 Array.from(number).forEach(num => {
     num.addEventListener('click', function (e) {
-        firstOperand = parseFloat(num.value)
-        secondOperand = parseFloat(e.target.value)
+        //firstOperand = parseFloat(e.target.value)
+        if (!operator) {
+            firstOperand = parseFloat(e.target.value)
+            console.log(firstOperand)
+            display.innerText = firstOperand
+
+        } else {
+            secondOperand = parseFloat(e.target.value)
+            console.log(secondOperand)
+            display.innerText = parseFloat(e.target.value)
+
+        }
+
     })
 });
 
@@ -32,11 +41,7 @@ Array.from(number).forEach(num => {
 // grabbing each operator with onClick.
 Array.from(Operator).forEach(opr  => {
     opr.addEventListener('click', function (e) {
-        e.preventDefault()
-        let op = opr.value
-        if (!op == "") {
-            equal()
-        }
+        
     })
 });
 
@@ -45,7 +50,7 @@ Array.from(Operator).forEach(opr  => {
 Array.from(oprCollection).forEach(spec => {
     spec.addEventListener('click', function (e) {
         if (spec = "=") {
-            equal()
+            //equal()
         } else if (spec = ".") {
             console.log('this is a decimal point')
         }
@@ -54,10 +59,13 @@ Array.from(oprCollection).forEach(spec => {
 })
 
 
-function equal(e) {
-    let results = firstOperand + secondOperand
-    console.log(results)
-    
-    
-}
-       
+
+equals.addEventListener("click", function (d) {
+    console.log('firstOperand',firstOperand)
+    console.log('secondOperand', secondOperand)
+    console.log('operator', operator)
+    if (operator == "=") {
+        let result = firstOperand + secondOperand
+        console.log(result)
+    }
+})
