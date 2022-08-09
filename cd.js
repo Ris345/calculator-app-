@@ -21,7 +21,7 @@ let zeroDisplay = 0
 Array.from(number).forEach(num => {
     num.addEventListener('click', function (e) {
         //firstOperand = parseFloat(e.target.value) 
-        if (!operator) { // !operator previous logic 
+        if (operator == "") { // !operator previous logic 
             //firstOperand = parseFloat(e.target.value) 
             if (display.innerText.length >= 10) return;
             if (firstOperand) {
