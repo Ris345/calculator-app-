@@ -27,19 +27,13 @@ Array.from(number).forEach(num => {
             if (firstOperand) {
                 firstOperand += e.target.value            
             } else {
-                firstOperand = parseFloat(e.target.value)
-                
+                firstOperand = parseFloat(e.target.value)                
              }
                 
-            //console.log(firstOperand)
-            display.innerText = firstOperand
-            
+            display.innerText = firstOperand            
            
-     } else {
-            //secondOperand = parseFloat(e.target.value)
-            //console.log(secondOperand)
-            //display.innerText += parseFloat(e.target.value)
-            
+     } else  {  
+            if (display.innerText.length >= 10) return;
             if (secondOperand) {
                 secondOperand += e.target.value   
             } else {
@@ -57,7 +51,9 @@ Array.from(number).forEach(num => {
 Array.from(Operator).forEach(opr  => {
     opr.addEventListener('click', function (e) {
         operator = e.target.value // previous e.target.value
-        console.log(operator)
+        if (display.innerText.length >= 10) {
+            display.innerText = "";
+        }
     })
 });
 
@@ -67,7 +63,7 @@ decimal.addEventListener("click", function () {
     if (button === decimal) {
         display.innerText = firstOperand + '.';
     }
-       
+     
 })
 
 
@@ -79,29 +75,25 @@ equals.addEventListener("click", function () {
     console.log(equals.value)
     debugger;
     if (equals.value == "=") {
-        debugger;
-        if (operator == "+") {
-            results = parseFloat(firstOperand) + parseFloat(secondOperand) 
-            display.innerText = results 
-            add()
-            //console.log(results)
-            //debugger;
-          } else if (operator == "-") {
-            results = parseFloat(firstOperand) - parseFloat(secondOperand)
-            display.innerText = results
-            subtract()
-            //console.log(results)
-        } else if (operator == "*") {
-            results = parseFloat(firstOperand) * parseFloat(secondOperand)
-            display.innerText = results
-            multiply()
-        } else {
-            results = parseFloat(firstOperand) / parseFloat(secondOperand)
-            display.innerText = (results).toFixed(3)
-            divide()
-        }
-             
+        debugger;            
     }
+    if (operator == "+") {
+        results = parseFloat(firstOperand) + parseFloat(secondOperand) 
+        display.innerText = results 
+        add()
+      } else if (operator == "-") {
+        results = parseFloat(firstOperand) - parseFloat(secondOperand)
+        display.innerText = results
+        subtract()
+    } else if (operator == "*") {
+        results = parseFloat(firstOperand) * parseFloat(secondOperand)
+        display.innerText = results
+        multiply()
+    } else {
+        results = parseFloat(firstOperand) / parseFloat(secondOperand)
+        display.innerText = (results).toFixed(3)
+        divide()
+    } 
            
 })
 
@@ -123,39 +115,19 @@ function divide() {
     parseFloat(firstOperand) / parseFloat(secondOperand)
 }
 
-
  
+clearButton.addEventListener("click", function (d) {
+    display.innerText = 0;
+    if (!firstOperand == "" || !operator == "" || !secondOperand == "") {
+      firstOperand = "";
+      operator = "";
+      secondOperand = "";
+    }
+})
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// continious calculation 
-
+// continued calculation 
 // press one, 1 should show up 
 // firstOperand = 1 
 // secondOperand = 0 
@@ -168,10 +140,33 @@ function divide() {
 // firstOperand = 1
 // secondOperand = 1 
 // operator = + 
-// press + , nothing should show up 
-
+// press + , nothing should show up // when the operator is pressed th third time the numbers become string so only the last number gets added. 
+//
 // press one, 1 should show up 
 // press + , nothing should show up 
 // press one, 1 should show up 
 // press equal 4 sould show up 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
