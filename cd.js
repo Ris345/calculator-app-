@@ -5,16 +5,16 @@ let number = document.getElementsByClassName('number'); // numbers
 //let  operators = document.getElementsByClassName('operator'); // 2nd div
 const button = document.getElementById('operators'); // buttons for operator 
 const box = document.getElementById('box'); // number div 
-let firstNum = document.getElementById('firstNum') // 1st display
-let secondNum = document.getElementById('secondNum') // 2nd display 
+let firstOpr = document.getElementById('firstOpr') // 1st display
+let secondOpr = document.getElementById('secondOpr') // 2nd display 
+let operate = document.getElementById('operate')
 let Operator = document.getElementsByClassName('operator') // operator 
-let oprCollection = document.getElementsByClassName('specialOperator') // . & = 
+let clearButton = document.getElementById('clearButton') // . & = 
 let equals = document.getElementById('equals') // equals button 
 let results = 0
 let  firstOperand =  " "
 let  secondOperand =  " "
-let operator = ""; // the akward space in the operator creates problems 
-let zeroDisplay = 0
+let operator = ""; 
 
 
 //  grabbing each number with onClick.
@@ -41,19 +41,25 @@ Array.from(number).forEach(num => {
                 
             }
             display.innerText = secondOperand 
-            
-        }
+           
+        } 
         
     })
 });
 
-// grabbing each operator with onClick.
 Array.from(Operator).forEach(opr  => {
     opr.addEventListener('click', function (e) {
-        operator = e.target.value // previous e.target.value
+        operator = e.target.value 
         if (display.innerText.length >= 10) {
             display.innerText = "";
         }
+        if (firstOperand && operator) {
+            ++ firstOperand
+        } else {
+            firstOperand + secondOperand
+        }
+
+
     })
 });
 
@@ -116,7 +122,7 @@ function divide() {
 }
 
  
-clearButton.addEventListener("click", function (d) {
+clearButton.addEventListener("click", function () {
     display.innerText = 0;
     if (!firstOperand == "" || !operator == "" || !secondOperand == "") {
       firstOperand = "";
