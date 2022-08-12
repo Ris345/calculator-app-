@@ -53,18 +53,20 @@ Array.from(Operator).forEach(opr  => {
         if (display.innerText.length >= 10) {
             display.innerText = "";
         }
-        if (firstOperand && operator) {
-            ++ firstOperand
-        } else {
-            firstOperand + secondOperand
-        }
+         // if operator = + 
+         // then perform operation
+         // store result of operation in secondOperand 
+        if (operator =="+") {
+            results = parseFloat(firstOperand) + parseFloat(secondOperand)
+            debugger; 
+            results = secondOperand
 
+        }
 
     })
 });
 
  
-
 decimal.addEventListener("click", function () {
     if (button === decimal) {
         display.innerText = firstOperand + '.';
@@ -85,7 +87,7 @@ equals.addEventListener("click", function () {
     }
     if (operator == "+") {
         results = parseFloat(firstOperand) + parseFloat(secondOperand) 
-        display.innerText = results 
+        display.innerText = results
         add()
       } else if (operator == "-") {
         results = parseFloat(firstOperand) - parseFloat(secondOperand)
@@ -133,25 +135,42 @@ clearButton.addEventListener("click", function () {
 
 
 
+
+// 1 + 1 + 1 + 1 = 4 
 // continued calculation 
 // press one, 1 should show up 
-// firstOperand = 1 
-// secondOperand = 0 
+// firstopr = 1 
+// secondOpr = ""
 // operator = ""
-// press + , nothing should show up
- // firstOperand = 1
-//  secondOperand = 0 
-//  operator = "+" 
-// press one , one should show up
-// firstOperand = 1
-// secondOperand = 1 
-// operator = + 
-// press + , nothing should show up // when the operator is pressed th third time the numbers become string so only the last number gets added. 
-//
+//press + , nothing should show up 
+// firstOpr = 1
+// secondOpr = ""
+// operator = "+"
 // press one, 1 should show up 
-// press + , nothing should show up 
-// press one, 1 should show up 
-// press equal 4 sould show up 
+//firstOpr = 1 
+// secondOpr = ""
+// operator = "+"
+// press + , 2 should show up 
+// firstOpr = 2
+// secondOpr = ""
+// operator = "+"
+// press 1 , one should show up 
+// firstOpr = 2
+// secondOpr = ""
+// operator = "+"
+// press + , 3 should show up 
+// firstOpr = 3 
+// second = ""
+// operator "="
+// press one , 1 should show up 
+// firstOpr = 3
+// secondOpr = ""
+//operator = "+"
+// press equals 4 should show up! 
+// firstOpr = 3
+// secondOpr = 1 
+// operator = "+"
+
 
 
 
