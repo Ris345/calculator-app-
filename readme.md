@@ -1,4 +1,4 @@
-#   TODO APP
+#   Calculator App 
 
 ### Simple To Do app made with Vanilla JavaScript, HTML and CSS.
 
