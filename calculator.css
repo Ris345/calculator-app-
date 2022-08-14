@@ -1,37 +1,91 @@
+html {
+    background-color: rgb(247, 242, 242);
+    font-family: 'Silkscreen', cursive;
+}
+
+h1{
+    text-align: center;
+}
+
 #main{
-  margin: auto; 
-  max-width: 250px;
-  max-height:600px;
-  border: 3px solid rgb(0, 0, 0);
-  padding: 5%;
-  background-color: rgb(10, 220, 150);
-  
+    display:flex; 
+    border: 10px solid rgb(0, 0, 0);
+    height: 575px;
+    width: 400px; 
+    margin: auto; 
+    border-radius: 3%;
+    background-color: rgb(126, 195, 207);
 }
 
-#display{
-  text-align: right;
+#display {
+   background-color:rgb(126, 195, 207);
+   width: 400px;
+   height: 50px;
+   text-align: right;
+   font-size: 3rem;
+   border: rgb(255, 255, 255);
 }
 
-#box{
-  display: grid;
-  grid-template-columns: auto auto auto; 
-  max-height: 250px;
-  max-width: 500px;
+#clear{
+    align-items: center;
+    margin-left: 12px;
+    background-color: rgb(230, 95, 95);
+}
+
+#clear:hover{
+    background-color: rgb(66, 246, 255);
+}
+
+
+#top-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+
+#middle-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; 
+  margin-top: 15px;
+}
+
+#semilow-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; 
+  margin-top: 15px;
+}
+
+#lower-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; 
+  margin-bottom: 20px;
+  margin-top: 15px;
 }
 
 button{
-    background-color: rgb(145, 181, 147);
-    color: rgb(0, 0, 0);
-    height: 35px;
-    width: 45px;
-    height: 45px;
-    padding: 10%;
-    
-    
+    width: 75px;
+    height:75px;
+    border: 2px solid black;
+    direction:ltr;
+    border-radius: 50%;
+    font-size: large;
+    border: 1px solid rgb(0, 0, 0);   
+    background-color: rgb(54, 100, 186);
+    font-family: 'Silkscreen', cursive;
 }
 
 button:hover{
-  background-color: yellowgreen
+    background-color: rgb(66, 246, 255);
 }
 
+#equals{
+   background-color:  rgb(84, 206, 104);
+}
 
+#equals:hover{
+    background-color: rgb(66, 246, 255);
+}

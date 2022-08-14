@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="./calculator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="firstOpr"></div>
-    <div id="operate"></div>
-    <div id="secondOpr"></div>
     <br><br>
+    <h1>Calculator</h1>
     <div id="main">
-        <div id="display">0</div>
+        <div id="calculator">
+            <div id="display">0</div>
+         <br><br>
+         <div class="button">
+            <button  id="clear">CE</button>
         <br><br>
-        <br><br>
-        <div id="box">
-        <button  id="clearButton">CE</button> 
+        <div id="top-row">
         <button class="number" value='9' id="nine">9</button> 
         <br><br>
         <button class="number"value="8" id="eight">8</button> 
@@ -26,6 +27,8 @@
         <br><br>
         <button class="number"value="6" id="six">6</button>
         <br><br>
+         </div>
+         <div id="middle-row">
         <button class="number"value="5" id="five">5</button>
         <br><br>
         <button class="number"value="4" id="four">4</button>
@@ -34,16 +37,18 @@
         <br><br>
         <button  class="number" value="2" id="two">2</button>
         <br><br>
+        </div>
+        <div id="semilow-row">
         <button class="number"value="1" id="one">1</button>
         <br><br>
         <button class="number" value="0" id="zero">0</button>
-        <br><br>
-        <br><br>
         <br><br>
         <button class="number" value="." id ="decimal">.</button>
         <br><br>
         <button id= "equals" class="equal" value="=">=</button>
         <br><br>
+        </div>
+        <div id="lower-row">
         <button class="operator" value="+" >+</button>
         <br><br>
         <button class="operator" value="-">-</button>
@@ -51,7 +56,9 @@
         <button class="operator" value="*">x</button>
         <br><br>
         <button class="operator" value="/">÷</button>
-        
+        <br><br>
+        </div>
+    </div>
     </div>
     </div>
     
@@ -59,3 +66,9 @@
 <!-- <script src="./calculator.js"></script> -->
 <script src="./cd.js"></script>
 </html>
+
+
+
+
+
+
