@@ -1,6 +1,6 @@
 #   Calculator App 
 
-### Simple To Do app made with Vanilla JavaScript, HTML and CSS.
+### Simple Calculator app made with Vanilla JavaScript, HTML and CSS.
 
 ![Calculator](./Calculator.png)
 

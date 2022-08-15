@@ -3,18 +3,16 @@ const display = document.getElementById('display');
 const main = document.getElementById('main');  
 let number = document.getElementsByClassName('number');  
 const button = document.getElementById('operators');  
-const box = document.getElementById('box');  
-let firstOpr = document.getElementById('firstOpr'); // 1st display
-let secondOpr = document.getElementById('secondOpr'); // 2nd display 
-let operate = document.getElementById('operate');
-let Operator = document.getElementsByClassName('operator'); // operator 
-let clearButton = document.getElementById('clearButton'); // . & = 
-let equals = document.getElementById('equals'); // equals button 
+let Operator = document.getElementsByClassName('operator');  
+let clearButton = document.getElementById('clearButton');  
+let equals = document.getElementById('equals'); 
 let results = 0;
 let firstOperand = " ";
 let secondOperand = " ";
 let operator = ""; 
-
+let memoryOne = "";
+let memoryTwo = "";
+let newMemory = ""; 
 
 Array.from(number).forEach(num => {
     num.addEventListener('click', function (e) {
@@ -25,7 +23,6 @@ Array.from(number).forEach(num => {
             } else {
                 firstOperand = parseFloat(e.target.value)                
              }
-                
             display.innerText = firstOperand   
            
         } else if (firstOperand && operator) {  
@@ -43,15 +40,14 @@ Array.from(number).forEach(num => {
 
 Array.from(Operator).forEach(opr  => {
     opr.addEventListener('click', function (e) {
+        debugger;
         if (display.innerText.length >= 10) {
             display.innerText = "";
-            
         }
         if (operator == "+") {
             if (secondOperand) {
                 results = parseFloat(firstOperand) + parseFloat(secondOperand)
                 display.innerText = results
-                
                 firstOperand = results
                 secondOperand = " "
             } else {
@@ -73,26 +69,33 @@ Array.from(Operator).forEach(opr  => {
             if (secondOperand) {
                 results = parseFloat(firstOperand) * parseFloat(secondOperand)
                 display.innerText = results 
-               
                 firstOperand = results
                 secondOperand = " "
             } else {
                 display.innerText = firstOperand
             }
         }
+        
         if (operator == "/") {
             if (secondOperand) {
-                results = parseFloat(firstOperand) / parseFloat(secondOperand)
-                display.innerText = results
+                if (parseFloat(firstOperand) % parseFloat(secondOperand) === 0) {
+                    results = parseFloat(firstOperand) / parseFloat(secondOperand) 
+                    display.innerText = results
                
-                firstOperand = results 
-                secondOperand = " "
+                    firstOperand = results
+                    secondOperand = " "
+                } else {
+                    results = parseFloat(firstOperand) / parseFloat(secondOperand)
+                    display.innerText = results.toFixed(3)
+               
+                    firstOperand = results.toFixed(3)
+                    secondOperand = " "                  
+                }
             } else {
                 display.innerText = firstOperand
-            }
+            }  
         }
         operator = e.target.value 
-          operate.innerText = operator
     })
 });
 
@@ -103,14 +106,15 @@ decimal.addEventListener("click", function () {
     }
      
 })
-
- 
 equals.addEventListener("click", function () {
-        calculate()         
+    calculate()   
 })
 
 
 function calculate() {
+    if (display.innerText.length >= 10) {
+        display.innerText = "";
+    }
     if (operator == "+") {
         results = parseFloat(firstOperand) + parseFloat(secondOperand) 
         display.innerText = results
@@ -123,36 +127,58 @@ function calculate() {
     } else if (operator == "*") {
         results = parseFloat(firstOperand) * parseFloat(secondOperand)
         display.innerText = results
-       
-
+    
     } else if (operator == "/") {
-        results = parseFloat(firstOperand) / parseFloat(secondOperand) 
-        display.innerText = results.toFixed(3)  
+        if (parseFloat(firstOperand) % parseFloat(secondOperand) === 0) {
+            results = parseFloat(firstOperand) / parseFloat(secondOperand) 
+            display.innerText = results; 
+        } else {
+            results = parseFloat(firstOperand) / parseFloat(secondOperand)
+            display.innerText = results.toFixed(3);
+        }
        
     } 
-}
+};
 
 
 
 clear.addEventListener("click", function () {
     display.innerText = 0;
     if (!firstOperand == "" || !operator == "" || !secondOperand == "") {
-      firstOperand = "";
-      operator = "";
-      secondOperand = "";
+        firstOperand = "";
+        operator = "";
+        secondOperand = "";
         
     }
-})
+});
+
+// things to be done memory function and the decimal point 
+//M+ 
+//M-
+//MR 
+//MC 
 
 
 
 
+function addMemory() {
+     
+};
 
 
 
+function memoryMinus() {
+    
+};
+
+function memoryRecall() {
+    
+};
 
 
-
+function memoryClear() {
+    
+};
 
 
 
