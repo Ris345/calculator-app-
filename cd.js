@@ -162,7 +162,7 @@ clear.addEventListener("click", function () {
 
 
 function addMemory() {
-     
+     //if(addMemory)
 };
 
 
