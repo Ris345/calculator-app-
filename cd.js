@@ -95,7 +95,7 @@ Array.from(Operator).forEach(opr  => {
                 display.innerText = firstOperand
             }  
         }
-        operator = e.target.value 
+        operator = e.target.value
     })
 });
 
