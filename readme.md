@@ -9,10 +9,8 @@
 [Calculator](https://ris345.github.io/calculator-app.github.io/)
 
 
-
-
 ## Summary
-This is a calculator app made with Vanilla JS. It was a challenging project because I had to change my thinking and change my approach to a systematic way. But I loved every moment of it. 
+ Calculator app made with Vanilla JS,HTML and CSS.Calculator is always useful tool to have. It  was a challenging project for me, as I worked through this project I developed a deeper understanding of logic in programming. I can say that I have started to think as a programmer and am ready to build more projects! 
 
 ## Author
 
