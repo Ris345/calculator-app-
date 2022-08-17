@@ -15,11 +15,9 @@ let operator = "";
 let memoryOne = "";
 let memoryTwo = 0;
 let addMemory = "";
-let finaladdMemory = "";  
 let minusMemory = ""; 
 let newMemory = ""; 
-let newminusMemory = ""; 
-let finalminusMemory = ""; 
+
 
 
 
@@ -150,7 +148,7 @@ clear.addEventListener("click", function () {
         firstOperand = "";
         operator = "";
         secondOperand = "";
-        memoryfnc.innerText = "M"; 
+        memoryfnc.innerText = "No Memory"; 
         newMemory = ""; 
         addMemory = "";
 
@@ -198,8 +196,9 @@ memoryMinus.addEventListener("click", function subtractMemory() {
 
 
 memoryRetrive.addEventListener("click", function show() {
-    if (newMemory && addMemory) {
+    if (!newMemory == "") {
         memoryfnc.innerText = newMemory
+    }  else if ( !addMemory == "") {
         memoryfnc.innerText = addMemory
     } else {
         memoryfnc.innerText = "No Memory"; 
