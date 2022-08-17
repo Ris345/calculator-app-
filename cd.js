@@ -134,8 +134,7 @@ function calculate() {
      
     } else if (operator == "*") {
         results = parseFloat(firstOperand) * parseFloat(secondOperand)
-        display.innerText = results
-    
+        display.innerText = results; 
     } else if (operator == "/") {
         if (parseFloat(firstOperand) % parseFloat(secondOperand) === 0) {
             results = parseFloat(firstOperand) / parseFloat(secondOperand) 
@@ -149,7 +148,6 @@ function calculate() {
 };
 
 
-
 clear.addEventListener("click", function () {
     display.innerText = 0;
     if (!firstOperand == "" || !operator == "" || !secondOperand == "") {
@@ -159,8 +157,6 @@ clear.addEventListener("click", function () {
         memoryfnc.innerText = "M"; 
     }
 });
-
-
 
 memoryPlus.addEventListener("click", function addMemo() {
     memoryOne = display.innerText;
@@ -176,7 +172,15 @@ memoryPlus.addEventListener("click", function addMemo() {
         memoryOne = ""; 
         console.log(addMemory);
         memoryfnc.innerText = addMemory
-    } 
+    } else if (addMemory) {
+        finaladdMemory = parseFloat(addMemory) + parseFloat(newminusMemory);
+        addMemory = finaladdMemory; 
+        console.log(finaladdMemory); 
+        newminusMemory = ""
+        memoryfnc.innerText = finaladdMemory; 
+    } else {
+        memoryfnc.innerText = "No Memory"; 
+    }
 });
 
 
@@ -184,52 +188,66 @@ memoryPlus.addEventListener("click", function addMemo() {
 memoryMinus.addEventListener("click", function subtractMemory() {
     memoryOne = display.innerText;
     debugger;
-    // if the button is clicked then this button would subtract the number that was given to it.  
-    // so it would be 0  - memoryOne.
-    // else if the 0 was full then it would subtract from the memoryOne.
-    //  else if now the memory full condition should be also from the add memory or the M- memor which is the minusMemory
-    // if the M- button is clicked then 
-    if (!minusMemory) {
-        minusMemory = parseFloat(memoryTwo) - parseFloat(memoryOne);
-        memoryOne = minusMemory
+    if (!newMemory) {
+        newMemory = parseFloat(memoryTwo) - parseFloat(memoryOne);
+        memoryOne = newMemory
         memoryTwo = ""; 
-        memoryfnc.innerText = minusMemory; 
-    } else {   
-        newminusMemory = parseFloat(minusMemory) - parseFloat(memoryOne);
-        minusMemory = newminusMemory
+        memoryfnc.innerText = newMemory; 
+    } else if(newMemory) {   
+        addMemory = parseFloat(newMemory) - parseFloat(memoryOne);
+        newMemory = addMemory
         memoryOne = "";
-        memoryfnc.innerText = newminusMemory; 
-    } 
+        memoryfnc.innerText = addMemory; 
+    } else if (addMemory) {
+        finalminusMemory = parseFloat(newminusMemory) - parseFloat(addMemory); 
+        newminusMemory = finalminusMemory; 
+        console.log(finalminusMemory); 
+        addMemory = ""; 
+        memoryfnc.innerText = finalminusMem0ory; 
+    } else {
+        memoryfnc.innerText = "No Memory"; 
+    }
  });
 
 
 
 
 memoryRetrive.addEventListener("click", function show() {
-    memoryfnc.innerText = minusMemory; 
+    debugger; 
     if (newMemory && addMemory) {
         memoryfnc.innerText = newMemory
         memoryfnc.innerText = addMemory
+    } else if(finaladdMemory && finalminusMemory) {
+        memoryfnc.innerText = finaladdMemory
+        memoryfnc.innerText = finalminusMemory
     } else {
-        memoryfnc.innerText = minusMemory;
-        memoryfnc.innerText = newminusMemory;
+        memoryfnc.innerText = "No Memory"; 
     }
     
  });
 
 
 memoryClear.addEventListener("click", function clear() {
-        addMemory.innerText = ""; 
-        minusMemory.innerText = ""; 
-        memoryfnc.innerText = "M"; 
+    debugger; 
+    if (!newMemory == "" || !addMemory == "" || !minusMemory == "" || !newminusMemory == "") {
+        newMemory = ""; 
+        addMemory = "";
+        minusMemory = "";
+        newminusMemory = ''; 
+        memoryfnc.innerText = "Memory Clear"; 
+    }        
  });
 
 
 
 
+//memoryPlus function whats expected? whats being seen ? 
+// number adds after the number is selected. 
+// number dos not subtract with M= memory button function 
+// both minus and plus memory buttons work by themselves but when add or subtracted byeach other they have nan showing
 
-
- 
+// memory should be global beyween M+ and M-
+// such that if there is a memory it should be shared when pressing either of the buttons; 
 
 
 
