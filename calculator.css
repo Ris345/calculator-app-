@@ -10,7 +10,7 @@ h1{
 #main{
     display:flex; 
     border: 10px solid rgb(0, 0, 0);
-    height: 600px;
+    height: 575px;
     width: 400px; 
     margin: auto; 
     border-radius: 3%;
