@@ -9,6 +9,7 @@ let equals = document.getElementById('equals');
 let memoryRetrive = document.getElementById('memoryRetrive');
 let memoryClear = document.getElementById('memoryClear'); 
 let results = 0;
+let continueResults = 0; 
 let firstOperand = " ";
 let secondOperand = " ";
 let operator = ""; 
@@ -20,14 +21,12 @@ let newMemory = "";
 
 
 
-
-
 Array.from(number).forEach(num => {
     num.addEventListener('click', function (e) {
         if (operator == "") {
           if (display.innerText.length >= 10) return;
             if (firstOperand) {
-                firstOperand += e.target.value
+                firstOperand = firstOperand + e.target.value
             } else {
                 firstOperand = parseFloat(e.target.value)
             }
@@ -36,7 +35,7 @@ Array.from(number).forEach(num => {
            } else if (firstOperand && operator) {
               if (display.innerText.length >= 10) return;
                  if (secondOperand) {
-                secondOperand += e.target.value
+                secondOperand = secondOperand + e.target.value
                 } else {
                 secondOperand = parseFloat(e.target.value)
             }
@@ -48,14 +47,15 @@ Array.from(number).forEach(num => {
 
 Array.from(Operator).forEach(opr  => {
     opr.addEventListener('click', function (e) {
+        debugger;
         if (display.innerText.length >= 10) {
             display.innerText = "";
         }
         if (operator == "+") {
             if (secondOperand) {
-                results = parseFloat(firstOperand) + parseFloat(secondOperand)
-                display.innerText = results
-                firstOperand = results
+                continueResults = parseFloat(firstOperand) + parseFloat(secondOperand)
+                display.innerText = continueResults
+                firstOperand = continueResults
                 secondOperand = " "
             } else {
                 display.innerText = firstOperand
@@ -63,10 +63,10 @@ Array.from(Operator).forEach(opr  => {
         }
         if (operator == "-") {
             if (secondOperand) {
-                results = parseFloat(firstOperand) - parseFloat(secondOperand)
-                display.innerText = results
+                continueResults = parseFloat(firstOperand) - parseFloat(secondOperand)
+                display.innerText = continueResults
                
-                firstOperand = results
+                firstOperand = continueResults
                 secondOperand = " "
             } else {
                 display.innerText = firstOperand
@@ -74,9 +74,9 @@ Array.from(Operator).forEach(opr  => {
         }
         if (operator == "*") {
             if (secondOperand) {
-                results = parseFloat(firstOperand) * parseFloat(secondOperand)
-                display.innerText = results
-                firstOperand = results
+                continueResults = parseFloat(firstOperand) * parseFloat(secondOperand)
+                display.innerText = continueResults
+                firstOperand = continueResults
                 secondOperand = " "
             } else {
                 display.innerText = firstOperand
@@ -85,16 +85,16 @@ Array.from(Operator).forEach(opr  => {
         if (operator == "/") {
             if (secondOperand) {
                 if (parseFloat(firstOperand) % parseFloat(secondOperand) === 0) {
-                    results = parseFloat(firstOperand) / parseFloat(secondOperand)
-                    display.innerText = results
+                    continueResults = parseFloat(firstOperand) / parseFloat(secondOperand)
+                    display.innerText = continueResults
                
-                    firstOperand = results
+                    firstOperand = continueResults
                     secondOperand = " "
                 } else {
-                    results = parseFloat(firstOperand) / parseFloat(secondOperand)
-                    display.innerText = results.toFixed(3)
+                    continueResults = parseFloat(firstOperand) / parseFloat(secondOperand)
+                    display.innerText = continueResults.toFixed(3)
                
-                    firstOperand = results.toFixed(3)
+                    firstOperand = continueResults.toFixed(3)
                     secondOperand = " "
                 }
             } else {
@@ -121,22 +121,49 @@ function calculate() {
     if (display.innerText.length >= 10) {
         display.innerText = "";
     }
+    debugger; 
     if (operator == "+") {
         results = parseFloat(firstOperand) + parseFloat(secondOperand) 
-        display.innerText = results
+        display.innerText = results; 
+        debugger; 
+        if (results) {
+            firstOperand = "";
+            secondOperand = "";
+            operator =""; 
+        }
       } else if (operator == "-") {
         results = parseFloat(firstOperand) - parseFloat(secondOperand)
         display.innerText = results
+        if (results) {
+            firstOperand = "";
+            secondOperand = "";
+            operator =""; 
+        }
     } else if (operator == "*") {
         results = parseFloat(firstOperand) * parseFloat(secondOperand)
         display.innerText = results; 
+        if (results) {
+            firstOperand = "";
+            secondOperand = "";
+            operator =""; 
+        }
     } else if (operator == "/") {
         if (parseFloat(firstOperand) % parseFloat(secondOperand) === 0) {
             results = parseFloat(firstOperand) / parseFloat(secondOperand) 
             display.innerText = results; 
+            if (results) {
+              firstOperand = "";
+              secondOperand = "";
+              operator =""; 
+            }
         } else {
             results = parseFloat(firstOperand) / parseFloat(secondOperand)
             display.innerText = results.toFixed(3);
+            if (results) {
+               firstOperand = "";
+               secondOperand = "";
+               operator =""; 
+            }
         }
        
     } 
@@ -205,12 +232,4 @@ memoryRetrive.addEventListener("click", function show() {
     }
     
  });
-
-
-
-
-
-
-
-
 
