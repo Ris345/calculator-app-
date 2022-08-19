@@ -1,4 +1,3 @@
-
 const display = document.getElementById('display'); 
 const main = document.getElementById('main');  
 let number = document.getElementsByClassName('number');  
@@ -158,7 +157,7 @@ function calculate() {
             }
         } else {
             results = parseFloat(firstOperand) / parseFloat(secondOperand)
-            display.innerText = results.toFixed(3);
+            display.innerText = parseFloat(results.toFixed(3));
             if (results) {
                firstOperand = "";
                secondOperand = "";
@@ -232,4 +231,3 @@ memoryRetrive.addEventListener("click", function show() {
     }
     
  });
-
