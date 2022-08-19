@@ -108,6 +108,8 @@ Array.from(Operator).forEach(opr  => {
 decimal.addEventListener("click", function () {
     if (button === decimal) {
         display.innerText = firstOperand + '.';
+    } else {
+        display.innerText = '.'; 
     }
      
 });
@@ -119,7 +121,7 @@ equals.addEventListener("click", function () {
 function calculate() {
     if (display.innerText.length >= 10) {
         display.innerText = "";
-    }
+    } 
     debugger; 
     if (operator == "+") {
         results = parseFloat(firstOperand) + parseFloat(secondOperand) 
