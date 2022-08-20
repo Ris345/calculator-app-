@@ -21,7 +21,6 @@ let decimalPoint = ".";
 
 Array.from(number).forEach(num => {
     num.addEventListener('click', function (e) {
-        debugger; 
         if (operator == "") {
           if (display.innerText.length >= 10) return;
             if (firstOperand) {
@@ -121,7 +120,6 @@ function calculate() {
     if (display.innerText.length >= 10) {
         display.innerText = "";
     } 
-    debugger; 
     if (operator == "+") {
         results = parseFloat(firstOperand) + parseFloat(secondOperand) 
         display.innerText = results; 
