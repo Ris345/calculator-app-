@@ -8,6 +8,7 @@ let equals = document.getElementById('equals');
 let memoryRetrive = document.getElementById('memoryRetrive');
 let memoryClear = document.getElementById('memoryClear'); 
 let results = 0;
+let continueResults = 0; 
 let firstOperand = " ";
 let secondOperand = " ";
 let operator = ""; 
@@ -45,15 +46,15 @@ Array.from(number).forEach(num => {
 
 
 Array.from(Operator).forEach(opr  => {
-    opr.addEventListener('click', function cal(e) {
+    opr.addEventListener('click', function (e) {
         if (display.innerText.length >= 10) {
             display.innerText = "";
         }
         if (operator == "+") {
             if (secondOperand) {
-                results = parseFloat(firstOperand) + parseFloat(secondOperand)
-                display.innerText = results; 
-                firstOperand = results;
+                continueResults = parseFloat(firstOperand) + parseFloat(secondOperand)
+                display.innerText = continueResults; 
+                firstOperand = continueResults; 
                 secondOperand = " "
             } else {
                 display.innerText = firstOperand
@@ -61,10 +62,10 @@ Array.from(Operator).forEach(opr  => {
         }
         if (operator == "-") {
             if (secondOperand) {
-                results = parseFloat(firstOperand) - parseFloat(secondOperand)
-                display.innerText = results
+                continueResults = parseFloat(firstOperand) - parseFloat(secondOperand)
+                display.innerText = continueResults; 
                
-                firstOperand = results
+                firstOperand = continueResults; 
                 secondOperand = " "
             } else {
                 display.innerText = firstOperand
@@ -72,9 +73,9 @@ Array.from(Operator).forEach(opr  => {
         }
         if (operator == "*") {
             if (secondOperand) {
-                results = parseFloat(firstOperand) * parseFloat(secondOperand)
-                display.innerText = results
-                firstOperand = results
+                continueResults = parseFloat(firstOperand) * parseFloat(secondOperand)
+                display.innerText = continueResults; 
+                firstOperand = continueResults; 
                 secondOperand = " "
             } else {
                 display.innerText = firstOperand
@@ -83,13 +84,13 @@ Array.from(Operator).forEach(opr  => {
         if (operator == "/") {
             if (secondOperand) {
                 if (parseFloat(firstOperand) % parseFloat(secondOperand) === 0) {
-                    results = parseFloat(firstOperand) / parseFloat(secondOperand)
-                    display.innerText = results
+                    continueResults = parseFloat(firstOperand) / parseFloat(secondOperand)
+                    display.innerText = continueResults; 
                
-                    firstOperand = results
+                    firstOperand = continueResults; 
                     secondOperand = " "
                 } else {
-                    results = parseFloat(firstOperand) / parseFloat(secondOperand)
+                    continueResults = parseFloat(firstOperand) / parseFloat(secondOperand)
                     display.innerText = parseFloat(results.toFixed(3))
                
                     firstOperand = parseFloat(results.toFixed(3))
@@ -124,7 +125,7 @@ function calculate() {
         results = parseFloat(firstOperand) + parseFloat(secondOperand) 
         display.innerText = results; 
         if (results) {
-            firstOperand = results; 
+            firstOperand = ""; 
             secondOperand = "";
             operator = ""; 
         } 
@@ -132,7 +133,7 @@ function calculate() {
         results = parseFloat(firstOperand) - parseFloat(secondOperand)
         display.innerText = results
         if (results) {
-            firstOperand = results;
+            firstOperand = ""; 
             secondOperand = "";
             operator =""; 
         }
@@ -140,7 +141,7 @@ function calculate() {
         results = parseFloat(firstOperand) * parseFloat(secondOperand)
         display.innerText = results; 
         if (results) {
-            firstOperand = results;
+            firstOperand = ""; 
             secondOperand = "";
             operator =""; 
         }
@@ -149,7 +150,7 @@ function calculate() {
             results = parseFloat(firstOperand) / parseFloat(secondOperand) 
             display.innerText = results; 
             if (results) {
-              firstOperand = results;
+              firstOperand = ""; 
               secondOperand = "";
               operator =""; 
             } 
