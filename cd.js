@@ -18,8 +18,6 @@ let addMemory = "";
 let minusMemory = "";
 let newMemory = "";
 
-
-
 Array.from(number).forEach((num) => {
   num.addEventListener("click", function (e) {
     if (operator == "") {
@@ -41,8 +39,6 @@ Array.from(number).forEach((num) => {
     }
   });
 });
-
-
 
 Array.from(Operator).forEach((opr) => {
   opr.addEventListener("click", function (e) {
@@ -102,18 +98,20 @@ Array.from(Operator).forEach((opr) => {
   });
 });
 
+
 decimal.addEventListener("click", function () {
-  if (decimal) {
-    if (!firstOperand.toString().includes(".")) {
-      firstOperand += ".";
-    } else if (!secondOperand.toString().includes(".")) {
-      secondOperand += ".";
-    } else {
-      display.innerText = firstOperand;
-      display.innerText = secondOperand;
-    }
-  }
+    if (decimal) {
+        if (!firstOperand.toString().includes('.')) {
+            firstOperand += '.'
+            display.innerText = firstOperand
+        } else if(!secondOperand.toString().includes('.'))  {
+                secondOperand += '.'
+                display.innerText = secondOperand
+            }
+       }
 });
+
+
 
 equals.addEventListener("click", function () {
   calculate();
@@ -123,16 +121,16 @@ function add(num1, num2) {
   return parseFloat(num1) + parseFloat(num2);
 }
 
-function sub(num1,num2) {
-    return parseFloat(num1) - parseFloat(num2);
+function sub(num1, num2) {
+  return parseFloat(num1) - parseFloat(num2);
 }
 
-function multiply(num1,num2) {
-    return parseFloat(num1) * parseFloat(num2);
+function multiply(num1, num2) {
+  return parseFloat(num1) * parseFloat(num2);
 }
 
-function divide(num1,num2) {
-    return parseFloat(num1) / parseFloat(num2);
+function divide(num1, num2) {
+  return parseFloat(num1) / parseFloat(num2);
 }
 
 function calculate() {
@@ -142,38 +140,33 @@ function calculate() {
   if (operator == "+") {
     results = add(firstOperand, secondOperand);
     display.innerText = results;
-    if (results) resetState()
-    
+    if (results) resetState();
   } else if (operator == "-") {
     results = sub(firstOperand, secondOperand);
     display.innerText = results;
-    if (results) resetState()
-    
+    if (results) resetState();
   } else if (operator == "*") {
     results = multiply(firstOperand, secondOperand);
     display.innerText = results;
-    if (results) resetState()
-    
+    if (results) resetState();
   } else if (operator == "/") {
     if (parseFloat(firstOperand) % parseFloat(secondOperand) === 0) {
       results = divide(firstOperand, secondOperand);
       display.innerText = results;
-      if (results) resetState()
+      if (results) resetState();
     } else {
       results = divide(firstOperand, secondOperand);
       display.innerText = parseFloat(results.toFixed(3));
-      if (results) resetState()
+      if (results) resetState();
     }
   }
 }
 
 function resetState() {
-    firstOperand = "";
-    secondOperand = "";
-    operator = "";
-};
-
-
+  firstOperand = "";
+  secondOperand = "";
+  operator = "";
+}
 
 clear.addEventListener("click", function () {
   display.innerText = 0;
