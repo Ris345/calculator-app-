@@ -1,13 +1,13 @@
 html {
-    background-color: rgb(247, 242, 242);
-    font-family: 'Silkscreen', cursive;
+       background-color: rgb(247, 242, 242);
+       font-family: 'Silkscreen', cursive;
 }
 
 h1{
     text-align: center;
 }
 
-#main{
+.main {
     display:flex; 
     border: 10px solid rgb(0, 0, 0);
     height: 575px;
@@ -17,68 +17,35 @@ h1{
     background-color: rgb(126, 195, 207);
 }
 
-#display {
+.calculator {
+    width: 100%; 
+}
+
+.display {
    background-color:rgb(126, 195, 207);
    width: 400px;
    height: 50px;
    text-align: right;
    font-size: 3rem;
-   border: rgb(255, 255, 255);
    overflow: hidden;
 }
-
-#clear{
-    align-items: center;
-    background-color: rgb(230, 95, 95);
-}
-
-#clear:hover{
-    background-color: rgb(66, 246, 255);
-}
-
-#higher-row{
-    display: flex;
+.button-row {
+   display: flex;
    flex-direction: row;
    justify-content: space-evenly;
-   margin-top: 15px;
-   margin-left:5px; 
-   display: rtl; 
+   margin-top: 10px;
+   width:100%; 
+
 }
 
-#top-row{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 15px;
+.buttons{
+    margin-top: 50px;
 }
 
-#middle-row{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly; 
-  margin-top: 15px;
-}
-
-#semilow-row{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly; 
-  margin-top: 15px;
-}
-
-#lower-row{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly; 
-  margin-bottom: 20px;
-  margin-top: 15px;
-}
-
-button{
+button {
     width: 75px;
     height:75px;
     border: 2px solid black;
-    direction:ltr;
     border-radius: 50%;
     font-size: large;
     border: 1px solid rgb(0, 0, 0);   
@@ -87,14 +54,24 @@ button{
     color:white;
 }
 
-button:hover{
+button:hover {
     background-color: rgb(66, 246, 255);
 }
 
-#equals{
+
+.clear {
+    align-items: center;
+    background-color: rgb(230, 95, 95);
+}
+
+.clear:hover {
+    background-color: rgb(66, 246, 255);
+}
+
+.equals {
    background-color:  rgb(84, 206, 104);
 }
 
-#equals:hover{
+.equals:hover{
     background-color: rgb(66, 246, 255);
 }

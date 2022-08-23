@@ -10,7 +10,7 @@
 
 
 ## Summary
- Calculator app made with Vanilla JS,HTML and CSS. Calculator is a useful tool to have around -- Overall it was a challenging project, as I worked through this project I developed a deeper understanding of logic in programming. Completing this project has defintely changed my thinking and has helped me think more as a programmer. 
+ Calculator app made with Vanilla JS,HTML and CSS. Calculator is a useful tool to have around -- Overall it was a challenging project, as I worked through this project I developed a deeper understanding of logic in programming. Completing this project has definitely changed my thinking and has helped me think more as a programmer. 
 
 ## Author
 
